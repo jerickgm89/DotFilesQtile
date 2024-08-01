@@ -31,3 +31,9 @@ Primero le agregue la configuración de Rofi para el launcher y powermenu el usu
 [Rofi Config](https://github.com/adi1090x/rofi)
 
 y lo demás son solo cambio de algunos shorcuts para el layout QWERYT (Ando aprendiendo Dvorak 🥲), [flameshot](https://github.com/flameshot-org), [Wezterm](https://wezfurlong.org/wezterm/index.html) (Terminal) con el Shell Zsh, en lo posible explicare cada configuración de cada dependencia.
+
+### Wezterm
+
+La terminal que estoy usando en este momento, el motivo principal es que esta realizado en rust y para configurarlo se usa lua como lenguaje, este ultimo me es muy importante ya que utilizo [neovim](https://neovim.io/) para el desarrollo de mis aplicaciones web.
+
+El tema uso [Catppuccin](https://github.com/catppuccin/WezTerm), me parece muy agradable los colores

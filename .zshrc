@@ -113,8 +113,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll='colorls -lA --sd'
-alias ls='colorls -A'
+alias ll='lsd -la'
+alias ls='lsd'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -126,8 +126,14 @@ PATH=~/.console-ninja/.bin:$PATH
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-export PATH="$PATH:/home/jerickdev/.local/share/gem/ruby/3.0.0/bin"
-source $(dirname $(gem which colorls))/tab_complete.sh
-
+# export PATH="$PATH:/home/jerickdev/.local/share/gem/ruby/3.0.0/bin"
+# source $(dirname $(gem which colorls))/tab_complete.sh
+ 
 # Edit .zshrc and add this line
 export PATH=$HOME/.config/rofi/scripts:$PATH
+eval "$(zellij setup --generate-auto-start zsh)"
+
+eval "$(starship init zsh)"
+
+# React Native
+export ANDROID_HOME=$HOME/Android/sdk && export PATH=$PATH:$ANDROID_HOME/emulator && export PATH=$PATH:$ANDROID_HOME/platform-tools

@@ -10,7 +10,7 @@ screens = [
         top=Bar(cfg.bar).create(),
     ),
     Screen(
-        wallpaper=cfg.wallpaper,
+        wallpaper=cfg.wallpaper2,
         wallpaper_mode="fill",
         top=Bar(cfg.bar2).create(),
     ),

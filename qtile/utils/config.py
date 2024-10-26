@@ -9,12 +9,13 @@ from typing import Optional
 @dataclass
 class Config:
     bar: str = "shapes"
-    bar2: str = "shapes"
+    bar2: str = "agatha"
     browser: str = "microsoft-edge-stable"
     flameshot: str = "flameshot gui"
     term: str | None = "wezterm"
     term2: str = ""
-    wallpaper: str = "~/Pictures/montanas.jpg"
+    wallpaper: str = "~/Pictures/catppuccin-wallpapers-main/landscapes/Cloudsnight.jpg"
+    wallpaper2: str = "~/Pictures/catppuccin-wallpapers-main/minimalistic/catppuccin_triangle.png"
 
     @property
     def is_xephyr(self):

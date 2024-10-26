@@ -8,7 +8,7 @@ config = {
     "border_normal": palette.base,
     "border_width": 0,
     "margin": 10,
-    "single_border_width": 0,
+    "single_border_width": 2,
     "single_margin": 10,
 }
 
@@ -20,6 +20,8 @@ layouts = [
         max_ratio=0.70,
     ),
     layout.Max(**config),
+    layout.MonadWide(**config),
+    layout.TreeTab(**config),
 ]
 
 floating_layout = layout.Floating(
@@ -33,21 +35,20 @@ floating_layout = layout.Floating(
             "confirmreset",
             "Display",
             "floating",
-            "gnome-screenshot",
+            "flameshot",
             "gpicview",
-            "kvantummanager",
             "lxappearance",
-            "makebranch",
-            "maketag",
+            # "makebranch",
+            # "maketag",
             "pavucontrol",
-            "pinentry-gtk-2",
-            "psterm",
+            # "pinentry-gtk-2",
+            # "psterm",
             "qt5ct",
             "ssh-askpass",
             "steam",
-            "thunar",
-            "Thunar",
-            "Xephyr",
+            # "thunar",
+            # "Thunar",
+            # "Xephyr",
             "xfce4-about",
         ),
         *title(

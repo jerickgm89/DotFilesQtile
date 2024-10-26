@@ -1,9 +1,10 @@
 {
   "bar": "shapes",
-  "bar2": "shapes",
+  "bar2": "agatha",
   "browser": "microsoft-edge-stable",
   "flameshot": "flameshot gui",
   "term": "wezterm",
   "term2": "",
-  "wallpaper": "~/Pictures/montanas.jpg"
+  "wallpaper": "~/Pictures/catppuccin-wallpapers-main/landscapes/Cloudsnight.jpg",
+  "wallpaper2": "~/Pictures/catppuccin-wallpapers-main/minimalistic/catppuccin_triangle.png"
 }

@@ -5,24 +5,40 @@ from core.bar.base import base, powerline, rectangle, symbol
 from extras import Clock, GroupBox, TextBox, modify, widget
 from utils.config import cfg
 from utils.palette import palette
+from utils.paletteLatte import paletteLatte as CatppuccinLatte
+from utils.paletteFrappe import paletteFrappe as CatppuccinFrappe
+
+backgroundBar = palette.base
+backgroundWidget = CatppuccinFrappe.mantle
+backgroundGroupbox = CatppuccinFrappe.crust
+sizeIconWidget = 18
 
 bar = {
-    "background": palette.base,
-    "border_color": palette.base,
+    "background": backgroundBar,
+    "border_color": backgroundBar,
     "border_width": 4,
     "margin": [10, 10, 0, 10],
     "opacity": 1,
-    "size": 20,
+    "size": 28,
 }
 
 
 def sep(fg, offset=0, padding=10):
     return TextBox(
         **base(None, fg),
-        **symbol(11),
+        **symbol(14),
         offset=offset,
         padding=padding,
         text="󰇙",
+    )
+
+def sepSpacer(fg, offset=0, padding=2):
+    return TextBox(
+        **base(None, fg),
+        **symbol(),
+        offset=offset,
+        padding=padding,
+        text=" ",
     )
 
 
@@ -31,25 +47,28 @@ logo = lambda bg, fg: TextBox(
     **symbol(),
     **rectangle(),
     mouse_callbacks={"Button1": lazy.restart()},
-    padding=18,
-    text="",
+    padding=12,
+    text="", # 󰄛                       
+    # 󱘊 󰌽
+    # text= "", #  󰄛 
+
 )
 
 groups = lambda bg: GroupBox(
-    **symbol(),
+    **symbol(25),
     background=bg,
     borderwidth=1,
     colors=[
-        palette.teal,
-        palette.lavender,
-        palette.blue,
-        palette.red,
-        palette.mauve,
-        palette.green,
+        CatppuccinLatte.teal, # Colors for the group 1
+        CatppuccinLatte.blue, # Colors for the group 2
+        CatppuccinLatte.sky, # Colors for the group 3
+        CatppuccinLatte.mauve, # Colors for the group 8
+        CatppuccinLatte.green, # Colors for the group 9
+        CatppuccinLatte.red, # Colors for the group 0
     ],
-    highlight_color=palette.base,
+    highlight_color=backgroundGroupbox,
     highlight_method="line",
-    inactive=palette.surface2,
+    inactive=CatppuccinFrappe.surface2,
     invert=True,
     padding=6,
     rainbow=True,
@@ -59,7 +78,7 @@ volume = lambda bg, fg: [
     modify(
         TextBox,
         **base(bg, fg),
-        **symbol(),
+        **symbol(sizeIconWidget),
         **rectangle("left"),
         offset=-17,
         padding=15,
@@ -68,7 +87,8 @@ volume = lambda bg, fg: [
     ),
     widget.Volume(
         **base(bg, fg),
-        **powerline("arrow_right"),
+        # **powerline("arrow_right"),
+        **rectangle("right"),
         check_mute_command="pamixer --get-mute",
         check_mute_string="true",
         get_volume_command="pamixer --get-volume-human",
@@ -82,7 +102,8 @@ volume = lambda bg, fg: [
 updates = lambda bg, fg: [
     TextBox(
         **base(bg, fg),
-        **symbol(14),
+        **rectangle("left"),
+        **symbol(sizeIconWidget),        
         offset=-1,
         text="",
         x=-2,
@@ -103,7 +124,7 @@ updates = lambda bg, fg: [
 
 window_name = lambda fg: widget.WindowName(
     **base(None, fg),
-    format="{name}",
+    format="{name}", # {name} - {class}
     max_chars=60,
     width=CALCULATED,
 )
@@ -112,7 +133,7 @@ cpu = lambda bg, fg: [
     modify(
         TextBox,
         **base(bg, fg),
-        **symbol(14),
+        **symbol(sizeIconWidget),
         **rectangle("left"),
         offset=-13,
         padding=15,
@@ -120,7 +141,8 @@ cpu = lambda bg, fg: [
     ),
     widget.CPU(
         **base(bg, fg),
-        **powerline("arrow_right"),
+        # **powerline("arrow_right"),
+        **rectangle("right"),
         format="{load_percent:.0f}%",
     ),
 ]
@@ -128,23 +150,26 @@ cpu = lambda bg, fg: [
 ram = lambda bg, fg: [
     TextBox(
         **base(bg, fg),
-        **symbol(14),
+        **symbol(sizeIconWidget),
+        **rectangle("left"),
         offset=-1,
         padding=5,
         text="󰘚",
     ),
     widget.Memory(
         **base(bg, fg),
-        **powerline("arrow_right"),
-        format="{MemUsed: .0f}{mm} ",
-        padding=-3,
+        # **powerline("arrow_right"),
+        **rectangle("right"),
+        format="{MemUsed: .0f} {mm} ",
+        padding=2,
     ),
 ]
 
 disk = lambda bg, fg: [
     TextBox(
         **base(bg, fg),
-        **symbol(14),
+        **symbol(sizeIconWidget),
+        **rectangle("left"),
         offset=-1,
         text="",
         x=-2,
@@ -164,7 +189,7 @@ clock = lambda bg, fg: [
     modify(
         TextBox,
         **base(bg, fg),
-        **symbol(14),
+        **symbol(sizeIconWidget),
         **rectangle("left"),
         offset=-14,
         padding=15,
@@ -183,19 +208,22 @@ clock = lambda bg, fg: [
 
 widgets = lambda: [
     widget.Spacer(length=1),
-    logo(palette.blue, palette.base),
+    logo(backgroundWidget, CatppuccinFrappe.sky),
     sep(palette.surface2, offset=-14),
     groups(None),
     sep(palette.surface2, offset=8, padding=2),
-    *volume(palette.lavender, palette.base),
-    *updates(palette.red, palette.base),
+    *volume(backgroundWidget, palette.mauve),
+    sepSpacer(palette.surface2),
+    *updates(backgroundWidget, palette.red),
     widget.Spacer(),
-    window_name(palette.text),
+    window_name(CatppuccinFrappe.text),
     widget.Spacer(),
-    *cpu(palette.maroon, palette.base),
-    *ram(palette.yellow, palette.base),
-    *disk(palette.teal, palette.base),
+    *ram(backgroundWidget, CatppuccinFrappe.blue),
+    sepSpacer(palette.surface2),
+    *cpu(backgroundWidget, CatppuccinFrappe.red),
+    sepSpacer(palette.surface2),
+    *disk(backgroundWidget, CatppuccinFrappe.green),
     sep(palette.surface2),
-    *clock(palette.mauve, palette.base),
+    *clock(backgroundWidget, CatppuccinFrappe.mauve),
     widget.Spacer(length=1),
 ]

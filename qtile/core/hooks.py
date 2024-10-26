@@ -21,12 +21,15 @@ def startup():
                 format=8,
             )
 
-# This hook is used to move the Spotify client to the "0" group
+# This hook is used to move the App client to the group with the specified name
 @hook.subscribe.client_new
 async def client_new(client):
     await asyncio.sleep(0.5)
     if client.name == "Spotify":
-        client.togroup("0")
+        client.togroup("9")
+    elif client.name == "Visual Studio Code":
+        client.togroup("2")
+    
 
 # This hook is used to run the autostart script
 @hook.subscribe.startup_once

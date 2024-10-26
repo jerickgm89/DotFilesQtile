@@ -15,6 +15,8 @@ else:
 if not cfg.term:
     cfg.term = guess_terminal()
 
+rofi_applets = 'home/erick/.config/qtile/scripts/'
+
 keys = [Key(*key) for key in [  # type: ignore
     # switch between windows
     ([mod], "h", lazy.layout.left()),
@@ -30,7 +32,6 @@ keys = [Key(*key) for key in [  # type: ignore
 
     # Switch focus of monitors
     ([mod], "period", lazy.next_screen()),
-    ([mod], "comma", lazy.prev_screen()),
 
     # increase/decrease window size
     ([mod], "minus", lazy.layout.shrink()),
@@ -52,17 +53,18 @@ keys = [Key(*key) for key in [  # type: ignore
 
     # qtile stuff
     ([mod, "control"], "b", lazy.hide_show_bar()),
-    #([mod, "control"], "s", lazy.shutdown()),
-    #([mod, "control"], "r", restart),
+    ([mod, "control"], "s", lazy.shutdown()),
+    ([mod, "control"], "r", restart),
 
     # terminal
     ([mod], "Return", lazy.spawn(cfg.term)),
     ([mod, "shift"], "Return", lazy.spawn(cfg.term2)),
 
     # app launcher
-    ([mod, "shift"], "r", lazy.spawn("rofi -show window -theme \"/home/jerickdev/.config/rofi/launchers/type-1/style-8.rasi\"")),
-    ([mod], "r", lazy.spawn("rofi -show drun -theme \"/home/jerickdev/.config/rofi/launchers/type-1/style-8.rasi\"")),
-
+    ([mod, "shift"], "r", lazy.spawn("rofi -show window -theme \"/home/erick/.config/rofi/launchers/type-1/style-8.rasi\"")),
+    ([mod], "r", lazy.spawn("/home/erick/.config/rofi/scripts/launcher_t1")),
+    
+    
     # web browser
     ([mod], "b", lazy.spawn(cfg.browser)),
 
@@ -70,7 +72,7 @@ keys = [Key(*key) for key in [  # type: ignore
     ([mod, "shift"], "e", lazy.spawn(f"{cfg.term} -e ranger")),
 
     # screenshot tool
-    ([], "Print", lazy.spawn("flameshot gui")),
+    ([], "Print", lazy.spawn("flameshot gui --delay 1000")),
 
     # backlight
     ([mod], "XF86AudioLowerVolume", lazy.spawn("brightnessctl set 5%-")),
@@ -87,5 +89,5 @@ keys = [Key(*key) for key in [  # type: ignore
     ([], "XF86AudioNext", lazy.spawn("playerctl next")),
 
     # Apagar y reiniciar
-    ([mod, "control"], "Escape", lazy.spawn("/home/jerickdev/.config/rofi/scripts/powermenu_t6")),
+    ([mod, "control"], "Escape", lazy.spawn("/home/erick/.config/rofi/scripts/powermenu_t6")),
 ]]  # fmt: skip

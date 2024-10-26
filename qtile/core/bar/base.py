@@ -8,8 +8,8 @@ from extras import PowerLineDecoration, RectDecoration
 from utils.config import cfg
 
 defaults = {
-    "font": "Cascadia Code NF",
-    "fontsize": 15,
+    "font": "SF Pro Rounded Medium",
+    "fontsize": 16,
     "padding": None,
 }
 

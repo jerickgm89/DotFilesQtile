@@ -1,5 +1,7 @@
 # Qtile Dotfiles Configuration
 
+![Qtile Cover](image/Qtile.png)
+
 **[English](README.md)** | **[Español](README_es.md)**
 
 A comprehensive and customized Qtile window manager configuration featuring modern aesthetics, productivity-focused keybindings, and seamless integration with essential development tools.

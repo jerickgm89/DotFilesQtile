@@ -38,6 +38,7 @@ This configuration is based on the excellent work by [jx11r](https://github.com/
 ### Fonts
 - **otf-hasklig-nerd** - Programming font with ligatures
 - **ttf-nerd-fonts-symbols-mono** - Icon fonts for the status bar
+- **ttf-cascadia-code-nerd** - Cascadia Code N font with Nerd Font patches
 
 ## 🚀 Installation
 

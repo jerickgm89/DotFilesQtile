@@ -38,6 +38,7 @@ Esta configuración está basada en el excelente trabajo de [jx11r](https://gith
 ### Fuentes
 - **otf-hasklig-nerd** - Fuente de programación con ligaduras
 - **ttf-nerd-fonts-symbols-mono** - Fuentes de iconos para la barra de estado
+- **ttf-cascadia-code-nerd** - Fuente Cascadia Code N con parches de Nerd Font
 
 ## 🚀 Instalación
 
